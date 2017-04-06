@@ -29,3 +29,17 @@ commands:
 
 ```
 
+In order for npm to install properly, you also need to add these commands to a `home_perms.config` file in your `.ebextensions`  folder.
+
+```
+commands:
+  01_mkdir_webapp_dir:
+    command: mkdir /home/webapp
+    ignoreErrors: true
+  02_chown_webapp_dir:
+    command: chown webapp:webapp /home/webapp
+    ignoreErrors: true
+  03_chmod_webapp_dir:
+    command: chmod 700 /home/webapp
+    ignoreErrors: true
+```
